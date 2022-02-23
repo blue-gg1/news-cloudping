@@ -1,142 +1,216 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
- "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en">
 <!--
 Specifying the doctype DTD URL causes IE to render in standards mode.
 See http://msdn.microsoft.com/en-us/library/ms535242.aspx
 -->
 
 <head>
-  <title>CloudPing.info</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="This site allows you to perform an HTTP ping to measure the network latency from your browser to the various Amazon Web Services&trade; datacenters around the world.">
-  <link rel="stylesheet" href="style.css?v=2" type="text/css">
+    <title>CloudPing.info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description"
+          content="A website for measuring network latency from your browser to the various Amazon Web Services&trade; datacenters around the world.">
+    <style>
+        body {
+            max-width: 50rem;
+            margin: auto;
+            padding-left: 0.3rem;
+            padding-right: 0.3rem;
+            line-height: 130%;
+            font-size: 110%;
+        }
 
+        hr {
+            height: 1px;
+            background: #888;
+            border: none;
+        }
+
+        table {
+            margin-right: auto;
+            border: 1px #888 solid;
+            border-collapse: collapse;
+        }
+
+        thead > tr {
+            background: #eef;
+            border-bottom: 1px #888 solid;
+        }
+
+        th, td {
+            padding: 0.4rem;
+        }
+
+        button {
+            width: 100%;
+            /* Safari ignores min-height on buttons. */
+            line-height: 3rem;
+            font-size: 100%;
+        }
+
+        #imageHolder {
+            display: none;
+        }
+
+        footer {
+            color: #444;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<div id=page>
+<header>
+    <h1>CloudPing.info</h1>
+    <hr/>
+</header>
+<main>
+    <p><a href="http://aws.amazon.com/">Amazon Web Services</a>&trade; are
+        available in several regions. Click the button below to estimate the
+        latency from your browser to each AWS&trade; region.</p>
 
-<div id=title>
-  <h1>CloudPing.info</h1>
-</div>
+    <table>
+        <thead>
+        <tr>
+            <th>Region</th>
+            <th>Latency</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>US-East (Virginia)</td>
+            <td class='latency' id='us-east-1' endpoint='https://dynamodb.us-east-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>US East (Ohio)</td>
+            <td class='latency' id='us-east-2' endpoint='https://dynamodb.us-east-2.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>US-West (California)</td>
+            <td class='latency' id='us-west-1' endpoint='https://dynamodb.us-west-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>US-West (Oregon)</td>
+            <td class='latency' id='us-west-2' endpoint='https://dynamodb.us-west-2.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Canada (Central)</td>
+            <td class='latency' id='ca-central-1' endpoint='https://dynamodb.ca-central-1.amazonaws.com/'>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>Europe (Ireland)</td>
+            <td class='latency' id='eu-west-1' endpoint='https://dynamodb.eu-west-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Europe (London)</td>
+            <td class='latency' id='eu-west-2' endpoint='https://dynamodb.eu-west-2.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Europe (Frankfurt)</td>
+            <td class='latency' id='eu-central-1' endpoint='https://dynamodb.eu-central-1.amazonaws.com/'>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>Europe (Paris)</td>
+            <td class='latency' id='eu-west-3' endpoint='https://dynamodb.eu-west-3.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Europe (Stockholm)</td>
+            <td class='latency' id='eu-north-1' endpoint='https://dynamodb.eu-north-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Middle East (Bahrain)</td>
+            <td class='latency' id='me-south-1' endpoint='https://dynamodb.me-south-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Asia Pacific (Hong Kong)</td>
+            <td class='latency' id='ap-east-1' endpoint='https://dynamodb.ap-east-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Asia Pacific (Mumbai)</td>
+            <td class='latency' id='ap-south-1' endpoint='https://dynamodb.ap-south-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Asia Pacific (Osaka-Local)</td>
+            <td class='latency' id='ap-northeast-3' endpoint='https://dynamodb.ap-northeast-3.amazonaws.com/'>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>Asia Pacific (Seoul)</td>
+            <td class='latency' id='ap-northeast-2' endpoint='https://dynamodb.ap-northeast-2.amazonaws.com/'>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>Asia Pacific (Singapore)</td>
+            <td class='latency' id='ap-southeast-1' endpoint='https://dynamodb.ap-southeast-1.amazonaws.com/'>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>Asia Pacific (Sydney)</td>
+            <td class='latency' id='ap-southeast-2' endpoint='https://dynamodb.ap-southeast-2.amazonaws.com/'>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>Asia Pacific (Tokyo)</td>
+            <td class='latency' id='ap-northeast-1' endpoint='https://dynamodb.ap-northeast-1.amazonaws.com/'>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>South America (São Paulo)</td>
+            <td class='latency' id='sa-east-1' endpoint='https://dynamodb.sa-east-1.amazonaws.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>China (Beijing)</td>
+            <td class='latency' id='cn-north-1' endpoint='https://dynamodb.cn-north-1.amazonaws.com.cn/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>China (Ningxia)</td>
+            <td class='latency' id='cn-northwest-1' endpoint='https://dynamodb.cn-northwest-1.amazonaws.com.cn/'>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>AWS GovCloud (US-East)</td>
+            <td class='latency' id='us-gov-east-1' endpoint='https://dynamodb.us-gov-east-1.amazonaws.com/'>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>AWS GovCloud (US)</td>
+            <td class='latency' id='us-gov-west-1' endpoint='https://dynamodb.us-gov-west-1.amazonaws.com/'>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <button id='pingbutton'>HTTP Ping</button>
+                <span id=imageHolder></span></td>
+        </tr>
+    </table>
 
-<div id=content>
+    <p>You can fix problems on this page:<br/>
+        <a href="https://gitlab.com/leonhard-llc/cloudping.info">gitlab.com/leonhard-llc/cloudping.info</a>
+    </p>
 
-<p><a href="http://aws.amazon.com/">Amazon Web Services&trade;</a> are
-available in several regions.  Click the button below to estimate the
-latency from your browser to each AWS&trade; region.</p>
+    <p>Created and maintained by<br/>
+        Michael Leonhard<br/>
+        <code>michael</code> at <code>leonhardllc.com</code><br/>
+        <a href="https://www.linkedin.com/in/mleonhard/">linkedin.com/in/mleonhard</a><br/>
+        I'm available for contract work. My rate is USD100/hour.</p>
+</main>
 
-<table id="pinger">
-    <tr>
-        <th>Region</th>
-        <th>Latency</th>
-    </tr>
-    <tr>
-        <td>US-East (Virginia)</td>
-        <td class='latency' id='us-east-1' endpoint='https://dynamodb.us-east-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>US East (Ohio)</td>
-        <td class='latency' id='us-east-2' endpoint='https://dynamodb.us-east-2.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>US-West (California)</td>
-        <td class='latency'  id='us-west-1' endpoint='https://dynamodb.us-west-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>US-West (Oregon)</td>
-        <td class='latency'  id='us-west-2' endpoint='https://dynamodb.us-west-2.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Canada (Central)</td>
-        <td class='latency'  id='ca-central-1' endpoint='https://dynamodb.ca-central-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Europe (Ireland)</td>
-        <td class='latency'  id='eu-west-1' endpoint='https://dynamodb.eu-west-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Europe (London)</td>
-        <td class='latency'  id='eu-west-2' endpoint='https://dynamodb.eu-west-2.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Europe (Frankfurt)</td>
-        <td class='latency'  id='eu-central-1' endpoint='https://dynamodb.eu-central-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Europe (Paris)</td>
-        <td class='latency'  id='eu-west-3' endpoint='https://dynamodb.eu-west-3.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Europe (Stockholm)</td>
-        <td class='latency'  id='eu-north-1' endpoint='https://dynamodb.eu-north-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Middle East (Bahrain)</td>
-        <td class='latency'  id='me-south-1' endpoint='https://dynamodb.me-south-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Asia Pacific (Hong Kong)</td>
-        <td class='latency'  id='ap-east-1' endpoint='https://dynamodb.ap-east-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Asia Pacific (Mumbai)</td>
-        <td class='latency'  id='ap-south-1' endpoint='https://dynamodb.ap-south-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Asia Pacific (Osaka-Local)</td>
-        <td class='latency'  id='ap-northeast-3' endpoint='https://dynamodb.ap-northeast-3.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Asia Pacific (Seoul)</td>
-        <td class='latency'  id='ap-northeast-2' endpoint='https://dynamodb.ap-northeast-2.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Asia Pacific (Singapore)</td>
-        <td class='latency'  id='ap-southeast-1' endpoint='https://dynamodb.ap-southeast-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Asia Pacific (Sydney)</td>
-        <td class='latency'  id='ap-southeast-2' endpoint='https://dynamodb.ap-southeast-2.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>Asia Pacific (Tokyo)</td>
-        <td class='latency'  id='ap-northeast-1' endpoint='https://dynamodb.ap-northeast-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>South America (São Paulo)</td>
-        <td class='latency'  id='sa-east-1' endpoint='https://dynamodb.sa-east-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>China (Beijing)</td>
-        <td class='latency'  id='cn-north-1' endpoint='https://dynamodb.cn-north-1.amazonaws.com.cn/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>China (Ningxia)</td>
-        <td class='latency'  id='cn-northwest-1' endpoint='https://dynamodb.cn-northwest-1.amazonaws.com.cn/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>AWS GovCloud (US-East)</td>
-        <td class='latency'  id='us-gov-east-1' endpoint='https://dynamodb.us-gov-east-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>AWS GovCloud (US)</td>
-        <td class='latency'  id='us-gov-west-1' endpoint='https://dynamodb.us-gov-west-1.amazonaws.com/'>&nbsp;</td>
-    </tr>
-    <tr>
-        <td id='imageCell'></td>
-        <td><input type='submit' id='pingbutton' value="     HTTP Ping     "></td>
-    </tr>
-</table>
-
-<p>Is something wrong with this page?  Fix it yourself:
-<a href="https://gitlab.com/leonhard-llc/cloudping.info">gitlab.com/leonhard-llc/cloudping.info</a></p>
-
-<p>Created and maintained by Michael Leonhard,
-    <pre>michael</pre> at <pre>leonhardllc.com</pre>,
-    <a href="https://www.linkedin.com/in/mleonhard/">linkedin.com/in/mleonhard</a>.
-    I'm available for contract work.  My rate is USD100/hour.</p>
+<footer>
+    <hr/>
+    <p>Copyright &copy; 2010-2022 Michael Leonhard</p>
+    <p id=legalese>
+        Amazon Web Services and AWS are trademarks of Amazon.com, Inc. or
+        its affiliates in the United States and/or other countries.
+    </p>
+</footer>
 
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
 
@@ -189,12 +263,12 @@ function doNextBox(latencyBoxes) {
     }
 }
 
-var imageCell = $("#imageCell")
+var imageHolder = $("#imageHolder")
 function ping_endpoint(endpoint, onComplete) {
     var randomString = Math.floor(Math.random()*0xFFFFFFFFFFFFFFFF).toString(36);
     var targetUrl = endpoint + "ping?x=" + randomString;
-    imageCell.empty();
-    imageCell.html("<img id='pingImage' style='display: none'>");
+    imageHolder.empty();
+    imageHolder.html("<img id='pingImage' style='display: none'>");
     var pingImage = $("#pingImage");
     pingImage.error(onComplete);
     pingImage.attr("src", targetUrl);
@@ -225,14 +299,5 @@ function step3_finish(startTime, box, region, endpoint, latencyBoxes) {
 
 </script>
 
-</div>
-
-<div id="footer">
-  <p>Copyright &copy; 2010-2022 Michael Leonhard</p>
-</div>
-
-<div id=legalese>
-  Amazon Web Services and AWS are trademarks of Amazon.com, Inc. or
-  its affiliates in the United States and/or other countries.
-</div>
 </body>
+</html>
