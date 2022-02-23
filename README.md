@@ -15,3 +15,8 @@ The website is hosted on [GitLab Pages](https://pages.gitlab.io/).
 7. When we merge your changes, they go live immediately.
 
 Thanks for your contribution!
+
+# TO DO
+- Add new regions.
+- Fix security warning when typing `cloudping.info` into the browser.
+- Add other cloud providers.
