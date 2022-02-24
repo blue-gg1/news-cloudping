@@ -18,3 +18,4 @@ Thanks for your contribution!
 
 # TO DO
 - Add other cloud providers.
+- Update to modern JavaScript.  Stop using jQuery.
