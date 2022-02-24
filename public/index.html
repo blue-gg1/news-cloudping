@@ -240,30 +240,11 @@ function enablePingButton() {
     pingButton.removeAttr("disabled");
 };
 
-// http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
-function getURLParameter(name) {
-    var regex = new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)');
-    var matches = regex.exec(location.search);
-    if (matches == null) {
-        return null;
-    }
-    var value = matches[1];
-    var value = value.replace(/\+/g, '%20');
-    return decodeURIComponent(value);
-}
-
-$(document).ready(function() {
-    $("#pingbutton").click(pingButtonClicked);
-    if (getURLParameter("run")) {
-        $("#pingbutton").click();
-    }
-});
-
 function pingButtonClicked() {
     disablePingButton();
     var latencyBoxes = $(".latency").toArray();
     latencyBoxes.reverse();
-      doNextBox(latencyBoxes);
+    doNextBox(latencyBoxes);
 }
 
 function doNextBox(latencyBoxes) {
@@ -310,6 +291,10 @@ function step3_finish(startTime, box, region, endpoint, latencyBoxes) {
     $(box).html(resultText);
     doNextBox(latencyBoxes);
 }
+
+$(document).ready(function() {
+    $("#pingbutton").click(pingButtonClicked);
+});
 
 </script>
 
