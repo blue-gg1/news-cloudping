@@ -1,6 +1,6 @@
 # cloudping.info Website Source
 
-<https://www.cloudping.info/>
+<https://cloudping.info/>
 
 The website is hosted on [GitLab Pages](https://pages.gitlab.io/).
 
