@@ -49,8 +49,9 @@ See http://msdn.microsoft.com/en-us/library/ms535242.aspx
             font-size: 100%;
         }
 
-        #imageHolder {
-            display: none;
+        .latency {
+            width: 4.85rem;
+            text-align: center;
         }
 
         footer {
@@ -202,7 +203,7 @@ See http://msdn.microsoft.com/en-us/library/ms535242.aspx
         <tr>
             <td colspan=2>
                 <button id='pingbutton'>HTTP Ping</button>
-                <span id=imageHolder></span></td>
+            </td>
         </tr>
     </table>
 
@@ -245,55 +246,44 @@ function pingButtonClicked() {
     doNextBox(latencyBoxes);
 }
 
-function doNextBox(latencyBoxes) {
-    let box = latencyBoxes.pop();
+async function doNextBox(latencyBoxes) {
+    const box = latencyBoxes.pop();
     if (box) {
-        let region = box.id;
-        let endpoint = box.getAttribute("endpoint");
-        step1_connect(box, region, endpoint, latencyBoxes);
+        const region = box.id;
+        const endpoint = box.getAttribute("endpoint");
+
+        box.innerHTML = "connecting";
+
+        await ping_endpoint(endpoint).then(async () => {
+            box.innerHTML = "pinging";
+            const startTime = currentTimeMillis();
+            await ping_endpoint(endpoint).then(() => {
+                const endTime = currentTimeMillis();
+                const elapsed = endTime - startTime;
+                const resultText = elapsed.toString() + " ms";
+                box.innerHTML = resultText;
+                doNextBox(latencyBoxes);
+            });
+        })
     } else {
         enablePingButton();
     }
 }
 
-const imageHolder = document.getElementById("imageHolder");
-function ping_endpoint(endpoint, onComplete) {
-    const randomString = Math.floor(Math.random()*0xFFFFFFFFFFFFFFFF).toString(36);
-    const targetUrl = endpoint + "ping?x=" + randomString;
-    imageHolder.innerHTML = "";
-    imageHolder.innerHTML = "<img id='pingImage' style='display: none'>";
-    
-    const pingImage = document.getElementById("pingImage");
-    pingImage.addEventListener("error", onComplete);
-    pingImage.setAttribute("src", targetUrl);
-}
-
-function step1_connect(box, region, endpoint, latencyBoxes) {
-    box.innerHTML = "connecting...";
-    ping_endpoint(endpoint, function() { step2_ping(box, region, endpoint, latencyBoxes); });
+function ping_endpoint(endpoint) {
+    return new Promise(res => {
+        const randomString = Math.floor(Math.random()*0xFFFFFFFFFFFFFFFF).toString(36);
+        const targetUrl = endpoint + "ping?x=" + randomString;
+        fetch(targetUrl).then(() => res());
+    });
 }
 
 function currentTimeMillis() {
     return (new Date()).getTime();
 }
 
-function step2_ping(box, region, endpoint, latencyBoxes) {
-    box.innerHTML = "pinging";
-    const startTime = currentTimeMillis();
-    ping_endpoint(endpoint, function() { step3_finish(startTime, box, region, endpoint, latencyBoxes); });
-}
+document.getElementById("pingbutton").addEventListener("click", pingButtonClicked);
 
-function step3_finish(startTime, box, region, endpoint, latencyBoxes) {
-    const endTime = currentTimeMillis();
-    const elapsed = endTime - startTime;
-    const resultText = elapsed.toString() + " ms";
-    box.innerHTML = resultText;
-    doNextBox(latencyBoxes);
-}
-
-window.onload = () => {
-    document.getElementById("pingbutton").addEventListener("click", pingButtonClicked);
-}
 
 </script>
 
