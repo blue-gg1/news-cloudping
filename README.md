@@ -26,7 +26,7 @@ use [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 [X] Continue after error
 [ ] Timeout after 10s
-[ ] Use CORS for services that support it (AWS)
+[X] Use CORS for services that support it (AWS)
 [ ] Ping multiple endpoints at once
 [ ] Add a visual indicator of relative latency,
     to help users find the fastest regions without reading the milliseconds numbers. 

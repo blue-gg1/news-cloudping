@@ -153,7 +153,7 @@
         </tr>
         <tr>
             <td>ap-northeast-3 (Osaka-Local)</td>
-            <td class='latency' pingUrl='https://dynamodb.ap-northeast-3.amazonaws.com/ping/ping'>
+            <td class='latency' pingUrl='https://dynamodb.ap-northeast-3.amazonaws.com/ping'>
                 &nbsp;
             </td>
         </tr>
@@ -230,7 +230,7 @@
         </tr>
         <tr>
             <td>SFO3</td>
-            <td class='latency' pingUrl='https://sfo3.digitaloceanspaces.com/'>&nbsp;</td>
+            <td class='latency' pingUrl='https://sfo3.digitaloceanspaces.com/' supportsCors="false">&nbsp;</td>
         </tr>
         <tr>
             <td>TOR1 (Toronto)</td>
@@ -246,7 +246,7 @@
         </tr>
         <tr>
             <td>NYC3</td>
-            <td class='latency' pingUrl='https://nyc3.digitaloceanspaces.com/'>&nbsp;</td>
+            <td class='latency' pingUrl='https://nyc3.digitaloceanspaces.com/' supportsCors="false">&nbsp;</td>
         </tr>
         <tr>
             <td>LON1 (London)</td>
@@ -262,11 +262,11 @@
         </tr>
         <tr>
             <td>AMS3</td>
-            <td class='latency' pingUrl='https://ams3.digitaloceanspaces.com/'>&nbsp;</td>
+            <td class='latency' pingUrl='https://ams3.digitaloceanspaces.com/' supportsCors="false">&nbsp;</td>
         </tr>
         <tr>
             <td>FRA1 (Frankfurt)</td>
-            <td class='latency' pingUrl='https://fra1.digitaloceanspaces.com/'>&nbsp;</td>
+            <td class='latency' pingUrl='https://fra1.digitaloceanspaces.com/' supportsCors="false">&nbsp;</td>
         </tr>
         <tr>
             <td>BLR1 (Bangalore)</td>
@@ -274,7 +274,7 @@
         </tr>
         <tr>
             <td>SGP1 (Singapore)</td>
-            <td class='latency' pingUrl='https://sgp1.digitaloceanspaces.com/'>&nbsp;</td>
+            <td class='latency' pingUrl='https://sgp1.digitaloceanspaces.com/' supportsCors="false">&nbsp;</td>
         </tr>
     </table>
 
@@ -305,15 +305,20 @@
         return (new Date()).getTime();
     }
 
-    async function fetchUrl(url) {
-        try {
-            await fetch(url, {
-                "cache": "no-store",
-                "credentials": "omit",
-                "redirect": "error"
-            });
-        } catch (error) {
-            console.log(error);
+    async function fetchUrl(url, supportsCors) {
+        const OPTS = {
+            "cache": "no-store",
+            "credentials": "omit",
+            "redirect": "error"
+        };
+        if (supportsCors) {
+            await fetch(url, OPTS);
+        } else {
+            try {
+                await fetch(url, OPTS);
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -322,18 +327,21 @@
         pingButton.setAttribute("disabled", "disabled");
         let latencyBoxes = Array.from(document.querySelectorAll(".latency"));
         for (const box of latencyBoxes) {
-            const pingUrl = box.getAttribute("pingUrl");
-            // noinspection JSPrimitiveTypeWrapperUsage
-            box.innerHTML = "connecting";
-            await fetchUrl(pingUrl);
-            // noinspection JSPrimitiveTypeWrapperUsage
-            box.innerHTML = "pinging";
-            const startTime = currentTimeMillis();
-            await fetchUrl(pingUrl);
-            const endTime = currentTimeMillis();
-            const elapsed = endTime - startTime;
-            // noinspection JSPrimitiveTypeWrapperUsage
-            box.innerHTML = elapsed.toString() + " ms";
+            try {
+                const pingUrl = box.getAttribute("pingUrl");
+                const supportsCors = box.getAttribute("supportsCors") !== "false";
+                box.innerHTML = "connecting";
+                await fetchUrl(pingUrl, supportsCors);
+                box.innerHTML = "pinging";
+                const startTime = currentTimeMillis();
+                await fetchUrl(pingUrl, supportsCors);
+                const endTime = currentTimeMillis();
+                const elapsed = endTime - startTime;
+                box.innerHTML = elapsed.toString() + " ms";
+            } catch (error) {
+                console.log(error);
+                box.innerHTML = "error";
+            }
         }
         pingButton.removeAttribute("disabled");
     });
