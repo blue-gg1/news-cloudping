@@ -226,14 +226,20 @@
 
 <script type="text/javascript">
 
-    const FETCH_OPTIONS = {
-        "cache": "no-store",
-        "credentials": "omit",
-        "redirect": "error"
-    };
-
     function currentTimeMillis() {
         return (new Date()).getTime();
+    }
+
+    async function fetchUrl(url) {
+        try {
+            await fetch(url, {
+                "cache": "no-store",
+                "credentials": "omit",
+                "redirect": "error"
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const pingButton = document.getElementById("pingButton");
@@ -244,11 +250,11 @@
             const pingUrl = box.getAttribute("pingUrl");
             // noinspection JSPrimitiveTypeWrapperUsage
             box.innerHTML = "connecting";
-            await fetch(pingUrl, FETCH_OPTIONS);
+            await fetchUrl(pingUrl);
             // noinspection JSPrimitiveTypeWrapperUsage
             box.innerHTML = "pinging";
             const startTime = currentTimeMillis();
-            await fetch(pingUrl, FETCH_OPTIONS);
+            await fetchUrl(pingUrl);
             const endTime = currentTimeMillis();
             const elapsed = endTime - startTime;
             // noinspection JSPrimitiveTypeWrapperUsage
