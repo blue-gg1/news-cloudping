@@ -21,24 +21,24 @@ The website is hosted on [GitLab Pages](https://pages.gitlab.io/).
 Thank you!
 
 # TO DO
-[X] Modernize code,
-use [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) and
-the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
-[X] Continue after error
-[X] Timeout after 5s
-[X] Use CORS for services that support it (AWS)
-[X] Ping multiple endpoints at once
-[ ] Add a visual indicator of relative latency,
-    to help users find the fastest regions without reading the milliseconds numbers. 
-[X] Add AWS
-[X] Add DigitalOcean
-[ ] Add Linode
-[ ] Add Azure
-[ ] Add Google Cloud
-[ ] Add IBM Cloud
-[ ] Add Hetzner
-[ ] Add OVH
-[ ] Add other cloud providers.
+- [X] Modernize code,
+  use [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+  and the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+- [X] Continue after error
+- [X] Timeout after 5s
+- [X] Use CORS for services that support it (AWS)
+- [X] Ping multiple endpoints at once
+- [ ] Add a visual indicator of relative latency, 
+  to help users find the fastest regions without reading the milliseconds numbers. 
+- [X] Add AWS
+- [X] Add DigitalOcean
+- [ ] Add Linode
+- [ ] Add Azure
+- [ ] Add Google Cloud
+- [ ] Add IBM Cloud
+- [ ] Add Hetzner
+- [ ] Add OVH
+- [ ] Add other cloud providers.
 
 # Known Problems
 
