@@ -32,7 +32,7 @@ Thank you!
   to help users find the fastest regions without reading the milliseconds numbers. 
 - [X] Add AWS
 - [X] Add DigitalOcean
-- [ ] Add Linode
+- [X] Add Linode
 - [ ] Add Azure
 - [ ] Add Google Cloud
 - [ ] Add IBM Cloud
@@ -42,14 +42,18 @@ Thank you!
 
 # Known Problems
 
-1. DigitalOcean does not support CORS.
-   When pinging a DigitalOcean endpoint,
-   if the request fails quickly,
-   the page shows an impossibly short time, like 4ms.
-   Ideally, it would show "error".
-   To accomplish that, we need an endpoint that supports CORS.
-   Running my own would cost $5/mo per region, or $780/year.
-   To cover this cost, I could sell ads or move the project to GitHub and accept donations.
+## Shows very small latency number instead of error
+The URLs we're using for DigitalOcean & Linode do not support CORS.
+This means that JavaScript provides the same generic "network error" value
+for success and for all kinds of network errors.
+We measure the time it takes to return the error.
+Unfortunately, some errors come back immediately and then the page shows an incorrect short time, like 4ms.
+
+We would like it to show "error" instead.
+To get that, we need servers that support CORS in each region.
+Running my own would cost $5/month per region x 13 DigitalOcean regions and 11 Linode regions,
+or $1440/year.
+To cover this cost, the site could sell ads or move the project to GitHub and accept donations.
 
 # How to Report a Problem
 1. Go to https://gitlab.com/leonhard-llc/cloudping.info/-/issues
