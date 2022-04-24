@@ -25,7 +25,7 @@ Thank you!
 use [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) and
 the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 [X] Continue after error
-[ ] Timeout after 10s
+[X] Timeout after 5s
 [X] Use CORS for services that support it (AWS)
 [ ] Ping multiple endpoints at once
 [ ] Add a visual indicator of relative latency,
