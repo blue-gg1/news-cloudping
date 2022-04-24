@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description"
-          content="A website for measuring network latency from your browser to the various Amazon Web Services&trade; datacenters around the world.">
+          content="A website for measuring network latency from your browser to various cloud provider datacenters around the world.">
     <style>
         body {
             max-width: 50rem;
@@ -50,6 +50,10 @@
             text-align: center;
         }
 
+        .note {
+            text-align: center;
+        }
+
         footer {
             color: #444;
             text-align: center;
@@ -63,9 +67,7 @@
     <hr/>
 </header>
 <main>
-    <p><a href="http://aws.amazon.com/">Amazon Web Services</a>&trade; are
-        available in several regions. Click the button below to estimate the
-        latency from your browser to each AWS&trade; region.</p>
+    <p>Use this page to measure latency from your browser to various cloud provider datacenters.</p>
 
     <p>
         <button id='pingButton'>HTTP Ping</button>
@@ -78,6 +80,9 @@
             <th>Latency</th>
         </tr>
         </thead>
+        <tr>
+            <td colspan="2"><b><a href="http://aws.amazon.com/">Amazon Web Services</a>&trade;</b></td>
+        </tr>
         <!-- Amazon DynamoDB endpoints: https://docs.aws.amazon.com/general/latest/gr/ddb.html -->
         <tr>
             <td>us-east-1 (Virginia)</td>
@@ -199,6 +204,77 @@
             <td>us-gov-west-1</td>
             <td class='latency' pingUrl='https://dynamodb.us-gov-west-1.amazonaws.com/ping'>&nbsp;
             </td>
+        </tr>
+
+        <tr>
+            <td></td>
+        </tr>
+        <!--
+        Regional Availability Matrix
+        https://docs.digitalocean.com/products/platform/availability-matrix/
+        Spaces API Reference Documentation:
+        https://docs.digitalocean.com/reference/api/spaces-api/
+        Regional Availability:
+        https://docs.digitalocean.com/products/spaces/#regional-availability
+        -->
+        <tr>
+            <td colspan="2"><b><a href="https://www.digitalocean.com/">DigitalOcean</a></b></td>
+        </tr>
+        <tr>
+            <td>SFO1 (San Francisco)</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>SFO2</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>SFO3</td>
+            <td class='latency' pingUrl='https://sfo3.digitaloceanspaces.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>TOR1 (Toronto)</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>NYC1 (New York City)</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>NYC2</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>NYC3</td>
+            <td class='latency' pingUrl='https://nyc3.digitaloceanspaces.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>LON1 (London)</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>AMS1 (Amsterdam)</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>AMS2</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>AMS3</td>
+            <td class='latency' pingUrl='https://ams3.digitaloceanspaces.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>FRA1 (Frankfurt)</td>
+            <td class='latency' pingUrl='https://fra1.digitaloceanspaces.com/'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>BLR1 (Bangalore)</td>
+            <td class='note'><a href="https://gitlab.com/leonhard-llc/cloudping.info/-/issues/1">unavailable</a></td>
+        </tr>
+        <tr>
+            <td>SGP1 (Singapore)</td>
+            <td class='latency' pingUrl='https://sgp1.digitaloceanspaces.com/'>&nbsp;</td>
         </tr>
     </table>
 

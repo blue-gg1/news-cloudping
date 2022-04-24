@@ -21,15 +21,35 @@ The website is hosted on [GitLab Pages](https://pages.gitlab.io/).
 Thank you!
 
 # TO DO
-- Add other cloud providers.
-  - DigitalOcean
-  - Linode
-  - Azure
-  - Google Cloud
-  - IBM Cloud
-  - Hetzner
-  - OVH
-  - others
+[X] Modernize code,
+use [`await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) and
+the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+[X] Continue after error
+[ ] Timeout after 10s
+[ ] Use CORS for services that support it (AWS)
+[ ] Ping multiple endpoints at once
+[ ] Add a visual indicator of relative latency,
+    to help users find the fastest regions without reading the milliseconds numbers. 
+[X] Add AWS
+[X] Add DigitalOcean
+[ ] Add Linode
+[ ] Add Azure
+[ ] Add Google Cloud
+[ ] Add IBM Cloud
+[ ] Add Hetzner
+[ ] Add OVH
+[ ] Add other cloud providers.
+
+# Known Problems
+
+1. DigitalOcean does not support CORS.
+   When pinging a DigitalOcean endpoint,
+   if the request fails quickly,
+   the page shows an impossibly short time, like 4ms.
+   Ideally, it would show "error".
+   To accomplish that, we need an endpoint that supports CORS.
+   Running my own would cost $5/mo per region, or $780/year.
+   To cover this cost, I could sell ads or move the project to GitHub and accept donations.
 
 # How to Report a Problem
 1. Go to https://gitlab.com/leonhard-llc/cloudping.info/-/issues
