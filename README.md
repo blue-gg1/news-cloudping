@@ -72,7 +72,9 @@ We would like it to show "error" instead.
 To get that, we need servers that support CORS in each region.
 Running my own would cost $5/month per region x 13 DigitalOcean regions and 11 Linode regions,
 or $1440/year.
-To cover this cost, the site could sell ads or move the project to GitHub and accept donations.
+To cover this cost, the site could sell ads,
+move the project to GitHub and accept donations,
+or use affiliate links.
 
 # How to Report a Problem
 1. Go to https://gitlab.com/leonhard-llc/cloudping.info/-/issues
