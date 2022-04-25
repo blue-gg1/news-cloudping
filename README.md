@@ -34,6 +34,7 @@ Thank you!
 - [X] Add DigitalOcean
 - [X] Add Linode
 - [X] Add IBM Cloud
+- [X] Add OVH Cloud
 - [ ] Add [Azure](https://azure.microsoft.com/) - Azure has no regional URLs.
   All requests go through a single-point-of-failure DNS domain.
   
@@ -54,8 +55,8 @@ Thank you!
   <https://docs.microsoft.com/en-us/rest/api/storageservices/preflight-blob-request>
 - [ ] Add Google Cloud - Google Cloud has no regional URLs.
   All requests go through a single-point-of-failure DNS domain.
-- [ ] Add Hetzner
-- [ ] Add OVH
+- [ ] Add Hetzner - Hetzner's [Cloud API](https://docs.hetzner.cloud/) is available through one endpoint.
+  I found no regional services.  Hetzner has datacenters in Germany, Finland, and eastern USA.
 - [ ] Add other cloud providers.
 
 # Known Problems
