@@ -206,9 +206,6 @@
             </td>
         </tr>
 
-        <tr>
-            <td></td>
-        </tr>
         <!--
         Regional Availability Matrix
         https://docs.digitalocean.com/products/platform/availability-matrix/
@@ -217,6 +214,9 @@
         Regional Availability:
         https://docs.digitalocean.com/products/spaces/#regional-availability
         -->
+        <tr>
+            <td></td>
+        </tr>
         <tr>
             <td colspan="2"><b><a href="https://www.digitalocean.com/">DigitalOcean</a></b></td>
         </tr>
@@ -276,11 +276,46 @@
             <td>SGP1 (Singapore)</td>
             <td class='latency' pingUrl='https://sgp1.digitaloceanspaces.com/' supportsCors="false">&nbsp;</td>
         </tr>
+
+        <!--
+        List regions:
+        curl https://mccp.ng.bluemix.net/V2/regions
+        -->
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"><b><a href="https://www.ibm.com/cloud/">IBM Cloud</a></b></td>
+        </tr>
+        <tr>
+            <td>us-south (Dallas)</td>
+            <td class='latency' pingUrl='https://s3.us-south.cloud-object-storage.appdomain.cloud/' supportsCors="false">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>us-east (Washington DC)</td>
+            <td class='latency' pingUrl='https://s3.us-east.cloud-object-storage.appdomain.cloud/' supportsCors="false">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>eu-gb (London)</td>
+            <td class='latency' pingUrl='https://s3.eu-gb.cloud-object-storage.appdomain.cloud/' supportsCors="false">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>eu-de (Frankfurt)</td>
+            <td class='latency' pingUrl='https://s3.eu-de.cloud-object-storage.appdomain.cloud/' supportsCors="false">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>au-syd (Sydney)</td>
+            <td class='latency' pingUrl='https://s3.au-syd.cloud-object-storage.appdomain.cloud/' supportsCors="false">&nbsp;</td>
+        </tr>
+
         <!--
         https://www.linode.com/global-infrastructure/
         Linode Object Storage service does not return CORS headers.
         https://www.linode.com/docs/api/object-storage/#object-storage-object-url-create__response-samples
         -->
+        <tr>
+            <td></td>
+        </tr>
         <tr>
             <td colspan="2"><b><a href="https://www.linode.com/">Linode</a></b></td>
         </tr>
