@@ -35,28 +35,9 @@ Thank you!
 - [X] Add Linode
 - [X] Add IBM Cloud
 - [X] Add OVH Cloud
-- [ ] Add [Azure](https://azure.microsoft.com/) - Azure has no regional URLs.
-  All requests go through a single-point-of-failure DNS domain.
-  
-  I spent 20 minutes trying to find an Azure regional URL and failed.
-  The [Blob Store REST API docs](https://docs.microsoft.com/en-us/rest/api/storageservices/create-container)
-  are missing critical information like how to specify the region of a container.
-  This is typical crap corporate documentation made by hundreds of different people
-  with nobody taking responsibility for UX.
-  
-  Apparently, [storage accounts are regional](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal#basics-tab).
-  So I would need to create 38 different storage accounts.
-
-  Fortunately, it looks like empty accounts are free.
-  I would pay a [small fee](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/)
-  for each read operation.
-
-  I could create a Blob Store container and configure it for CORS.
-  <https://docs.microsoft.com/en-us/rest/api/storageservices/preflight-blob-request>
-- [ ] Add Google Cloud - Google Cloud has no regional URLs.
-  All requests go through a single-point-of-failure DNS domain.
-- [ ] Add Hetzner - Hetzner's [Cloud API](https://docs.hetzner.cloud/) is available through one endpoint.
-  I found no regional services.  Hetzner has datacenters in Germany, Finland, and eastern USA.
+- [ ] Add Azure - [Issue #6](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/6)
+- [ ] Add Google Cloud - [Issue #7](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/7)
+- [ ] Add Hetzner - [Issue #8](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/8)
 - [ ] Add other cloud providers.
 
 # Known Problems
