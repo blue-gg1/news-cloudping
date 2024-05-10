@@ -15,8 +15,10 @@ The website is hosted on [GitLab Pages](https://pages.gitlab.io/).
 7. When we merge your changes, they go live immediately.
 
 # Contributors
+- [Justin Briard](https://gitlab.com/jbriard) added support for Vultr.
+- [Anas Shakil](https://gitlab.com/anasshakil) added support for Google Cloud.
 - [Tayyab Mughal](https://gitlab.com/back2Lobby)
-  updated the code to use `async` and the Fetch API
+  updated the code to use `async` and the Fetch API.
 
 Thank you!
 
@@ -38,7 +40,7 @@ Thank you!
 - [X] Add Scaleway Cloud
 - [X] Add Vultr - [Issue #3](Cloud https://gitlab.com/leonhard-llc/cloudping.info/-/issues/3)
 - [ ] Add Azure - [Issue #6](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/6)
-- [ ] Add Google Cloud - [Issue #7](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/7)
+- [X] Add Google Cloud - [Issue #7](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/7)
 - [ ] Add Hetzner - [Issue #8](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/8)
 - [ ] Add other cloud providers.
 
