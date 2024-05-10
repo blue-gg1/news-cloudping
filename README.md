@@ -16,7 +16,7 @@ The website is hosted on [GitLab Pages](https://pages.gitlab.io/).
 
 # Contributors
 - [Justin Briard](https://gitlab.com/jbriard) added support for Vultr.
-- [Anas Shakil](https://gitlab.com/anasshakil) added support for Google Cloud.
+- [Anas Shakil](https://gitlab.com/anasshakil) added support for Google Cloud, Hetzner, and a new AWS region.
 - [Tayyab Mughal](https://gitlab.com/back2Lobby)
   updated the code to use `async` and the Fetch API.
 
