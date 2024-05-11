@@ -60,7 +60,7 @@
         }
     </style>
     <script defer data-domain="cloudping.info" src="https://plausible.io/js/script.js"></script>
-</head>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script></head>
 <body>
 
 <header>
@@ -884,7 +884,7 @@
 
 <footer>
     <hr/>
-    <p>Copyright &copy; 2010-2022 Michael Leonhard</p>
+    <p>Copyright &copy; 2010-2024 Michael Leonhard</p>
     <p id=legalese>
         Amazon Web Services and AWS are trademarks of Amazon.com, Inc. or
         its affiliates in the United States and/or other countries.
@@ -969,9 +969,11 @@
             worker(latencyBoxes),
             worker(latencyBoxes),
             worker(latencyBoxes),
-            worker(latencyBoxes)
+            worker(latencyBoxes),
+            plausible('pings_start')
         ]);
         pingButton.removeAttribute('disabled');
+        plausible('pings_done')
     });
 
 </script>
