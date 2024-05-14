@@ -59,6 +59,7 @@
             text-align: center;
         }
     </style>
+    <!--suppress JSUnresolvedLibraryURL -->
     <script defer data-domain="cloudping.info" src="https://plausible.io/js/script.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script></head>
 <body>
@@ -68,7 +69,7 @@
     <hr/>
 </header>
 <main>
-    <p>Use this page to measure latency from your browser to various cloud provider datacenters.</p>
+    <p>Click the "HTTP Ping" button to measure latency from your browser to various cloud provider datacenters.</p>
 
     <p>
         <button id='pingButton'>HTTP Ping</button>
@@ -868,8 +869,6 @@
 
     </table>
 
-    <p>Ad: Sponsor this project and put your text ad here.</p>
-
     <h2>About</h2>
     <p>Created and maintained by<br/>
         Michael Leonhard<br/>
@@ -940,7 +939,7 @@
             box.innerHTML = elapsed.toString() + ' ms';
             clearTimeout(timeoutId);
         } catch (e) {
-            if (timedOut && e instanceof DOMException && (e.code === DOMException.ABORT_ERR || e.name === 'AbortError')) {
+            if (timedOut && e instanceof DOMException && (e.name === 'AbortError')) {
                 box.innerHTML = 'timeout';
             } else {
                 console.error(e);
