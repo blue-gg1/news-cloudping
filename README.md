@@ -41,7 +41,7 @@ Thank you!
 - [X] Add Vultr - [Issue #3](Cloud https://gitlab.com/leonhard-llc/cloudping.info/-/issues/3)
 - [ ] Add Azure - [Issue #6](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/6)
 - [X] Add Google Cloud - [Issue #7](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/7)
-- [ ] Add Hetzner - [Issue #8](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/8)
+- [x] Add Hetzner - [Issue #8](https://gitlab.com/leonhard-llc/cloudping.info/-/issues/8)
 - [ ] Add other cloud providers.
 
 # Known Problems
