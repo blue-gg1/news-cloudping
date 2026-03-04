@@ -64,7 +64,7 @@
 
         .latency {
             width: 5.5rem;
-            text-align: left;
+            text-align: right;
         }
 
         .note {
@@ -1051,14 +1051,14 @@
             await fetchUrl(pingUrl, supportsCors, abortController);
             const endTime = currentTimeMillis();
             const elapsed = endTime - startTime;
-            box.textContent = elapsedMillisToIcon(elapsed) + ' ' + elapsed.toString() + ' ms';
+            box.textContent = elapsed.toString() + ' ms ' + elapsedMillisToIcon(elapsed);
             clearTimeout(timeoutId);
         } catch (e) {
             if (timedOut && e instanceof DOMException && (e.name === 'AbortError')) {
-                box.textContent = '❌ timeout';
+                box.textContent = 'timeout ❌';
             } else {
                 console.error(e);
-                box.textContent = '❌ error';
+                box.textContent = 'error ❌';
             }
         }
     }
