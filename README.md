@@ -30,7 +30,7 @@ Thank you!
 - [X] Timeout after 5s
 - [X] Use CORS for services that support it (AWS)
 - [X] Ping multiple endpoints at once
-- [ ] Add a visual indicator of relative latency, 
+- [x] Add a visual indicator of relative latency, 
   to help users find the fastest regions without reading the milliseconds numbers. 
 - [X] Add AWS
 - [X] Add DigitalOcean
