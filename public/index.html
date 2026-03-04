@@ -63,8 +63,8 @@
         }
 
         .latency {
-            width: 4.85rem;
-            text-align: center;
+            width: 5.5rem;
+            text-align: left;
         }
 
         .note {
@@ -1023,6 +1023,16 @@
         }
     }
 
+    function elapsedMillisToIcon(elapsed) {
+        if (elapsed < 100) {
+            return '✅';
+        } else if (elapsed < 300) {
+            return '▶️';
+        } else {
+            return '◻️';
+        }
+    }
+
     async function doBox(box) {
         let timedOut = false;
         try {
@@ -1034,21 +1044,21 @@
             }, 5 * 1000 /* milliseconds */);
             const pingUrl = box.getAttribute('pingUrl');
             const supportsCors = box.getAttribute('supportsCors') !== 'false';
-            box.innerHTML = 'connecting';
+            box.textContent = 'connecting';
             await fetchUrl(pingUrl, supportsCors, abortController);
-            box.innerHTML = 'pinging';
+            box.textContent = 'pinging';
             const startTime = currentTimeMillis();
             await fetchUrl(pingUrl, supportsCors, abortController);
             const endTime = currentTimeMillis();
             const elapsed = endTime - startTime;
-            box.innerHTML = elapsed.toString() + ' ms';
+            box.textContent = elapsedMillisToIcon(elapsed) + ' ' + elapsed.toString() + ' ms';
             clearTimeout(timeoutId);
         } catch (e) {
             if (timedOut && e instanceof DOMException && (e.name === 'AbortError')) {
-                box.innerHTML = 'timeout';
+                box.textContent = '❌ timeout';
             } else {
                 console.error(e);
-                box.innerHTML = 'error';
+                box.textContent = '❌ error';
             }
         }
     }
