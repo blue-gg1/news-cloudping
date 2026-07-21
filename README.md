@@ -49,9 +49,3 @@ or $1440/year.
 To cover this cost, the site could sell ads,
 move the project to GitHub and accept donations,
 or use affiliate links.
-
-# How to Report a Problem
-1. Go to https://gitlab.com/leonhard-llc/cloudping.info/-/issues
-2. Click "Register" and create a gitlab.com account
-3. Go back to https://gitlab.com/leonhard-llc/cloudping.info/-/issues and click "New Issue"
-4. Enter a clear description of the problem
