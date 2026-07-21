@@ -1,6 +1,6 @@
 # cloudping.info Website Source
 
-<http://localhost to be updated later >
+<https://cloudping.giedi-prime.org/>
 
 # Contributors
 - [Michael Leonhard](https://gitlab.com/leonhard-llc) author
