@@ -1,0 +1,3 @@
+[submodule "cloudping.info"]
+	path = cloudping.info
+	url = https://gitlab.com/leonhard-llc/cloudping.info
