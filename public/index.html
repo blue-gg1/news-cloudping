@@ -1061,7 +1061,7 @@
         <br>
         OVH, OVH Cloud, OVH US are trademarks of OVH SAS or its affiliates in the United States and/or other countries.
         <br>
-        Linode, and Akamai andare trademarks of Akamai Technologies or its affiliates in the United States and/or other countries.
+        Linode, and Akamai are trademarks of Akamai Technologies or its affiliates in the United States and/or other countries.
         <br>
         IBM and IBM Cloud are trademarks of IBM Corp. or its affiliates in the United States and/or other countries.
         <br>
@@ -1106,7 +1106,9 @@
     }
 
     function elapsedMillisToIcon(elapsed) {
-        if (elapsed < 100) {
+        if (elapsed < 50) {
+            return '🥳';
+        } else if (elapsed < 100) {
             return '✅';
         } else if (elapsed < 300) {
             return '▶️';
